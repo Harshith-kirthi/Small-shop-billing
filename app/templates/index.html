@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Shop Billing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Chicken Shop Billing System</h1>
+
+    <h2>Add Product</h2>
+    <input type="text" id="productName" placeholder="Product Name">
+    <input type="number" id="productPrice" placeholder="Price per Kg">
+    <button onclick="addProduct()">Add Product</button>
+
+    <h2>Create Sale</h2>
+    <select id="productSelect"></select>
+    <input type="number" id="weight" placeholder="Weight (Kg)">
+    <button onclick="createSale()">Create Sale</button>
+
+    <h2>Sales History</h2>
+<div class="sales-history-container">
+    <table id="salesTable">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Weight (Kg)</th>
+                <th>Total Price</th>
+                <th>Date & Time</th>
+                <th>Invoice</th>
+            </tr>
+        </thead>
+        <tbody id="salesTableBody"></tbody> <!-- Dynamic sales data -->
+    </table>
+</div>
+
+    
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .invoice-container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .invoice-details {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <h1>Chicken Shop</h1>
+            <p>Invoice #{{ sale.id }}</p>
+        </div>
+
+        <div class="invoice-details">
+            <p><strong>Date:</strong> {{ sale.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Weight (Kg)</th>
+                <th>Price per Kg</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ sale.weight_kg }} Kg</td>
+                <td>₹{{ product.price_per_kg }}</td>
+                <td>₹{{ sale.total_price }}</td>
+            </tr>
+        </table>
+
+        <p class="total">Total Amount: ₹{{ sale.total_price }}</p>
+    </div>
+</body>
+</html>
